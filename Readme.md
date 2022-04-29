@@ -4,7 +4,10 @@
 - Install => Python3 and Node.js
 
 # 2. Setup backend
-- make new directory, and run the command `pip3 install pipenv`
+- make new directory, and run the command 
+```console  
+    pip3 install pipenv
+```
 - if this doesn't work then run command `brew install pipenv` (for mac)
     - pipenv is a packaging tool for python, that simplifies dependency management for common use cases.
 - install django using `pipenv install django`
@@ -100,7 +103,7 @@
 # _Note: React Explained_
 
 - JSX used to code react. Example shows how JSC is implemented in react
-    ```JSX  
+    ```jsx  
         const name = sunny
         const greet = <h1>Hello, {name}<h1>
     ```
@@ -111,26 +114,22 @@
     
     > Example 
     _Functional Component_ 
-    ```js
+    ```jsx
         import React from "react";
 
         function FunctionalComp(){
             return <p>This is a Functional Component<p>
         }
-    ```
-    ```js
         export default FunctionalComp;
     ```
     _Class Component_ 
-    ```js
+    ```jsx
         import React from "react";
         export class ClassComp extends React.Component{
             render(){
                 return <p> This is a Class Component<p>;
             }
         }
-    ```
-    ```js
         export default ClassComp;
     ```
     
