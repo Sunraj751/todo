@@ -1,9 +1,9 @@
-<p align="center"> Setting up Backend </p>
+# <p align="center"> Setting up Backend </p>
 
-# 1. Starting project
+## 1. Starting project
 - Install => Python3 and Node.js
 
-# 2. Setup backend
+## 2. Setup backend
 - make new directory, and run the command 
 ```console  
     pip3 install pipenv
@@ -18,7 +18,7 @@
     pipenv install django
 ```
 
-# 3. Create a new project called backend
+## 3. Create a new project called backend
 - run the following command
 ```console 
     django-admin startproject backend
@@ -32,27 +32,27 @@
     - `urls.py` => Contains url patterns for the django project  
     - `wsgi.py` => contains wsgi configuration for django project. It is a recommended approach to deploy django to public
 
-# 4. Create todo application
+## 4. Create todo application
 - Run the command to create a folder todo with all the basic .py files needed
 ```console
     python manage.py startapp todo
 ```
 
-# 5. **Migration**
+## 5. **Migration**
 - This command creates a live a version control system for database schema. We are using SQlite here 
 ```console
     python manage.py migrate
 ```
-# 6. Starting the server
+## 6. Starting the server
 - run web server, with command => 
 ```console
     python3 manage.py runserver`
 ```
 
-# 7. Registering todo App:
+## 7. Registering todo App:
 - add app's name to `backend/settings.py` in INSTALLED_APPS
 
-# 8. Work on **todo/models.py**
+## 8. Work on **todo/models.py**
 - Create a table
 - Migrate it, by running the following command 
 ```console
@@ -63,10 +63,10 @@
     python3 manage.py migrate todo`
 ```
 
-# 9. To see the changes in **CRUD**
+## 9. To see the changes in **CRUD**
 - In `tools/admin.py`add admin.modelAdmin class 
 
-# 10. Create a **superuser**
+## 10. Create a **superuser**
 - To access the admin interface, run the command 
 ```console
     python manage.py createsuperuser
@@ -77,9 +77,9 @@
 ```
 - Navigate to `http://localhost:8000/admin`
 
-<p align="center"> Setting up APIs </p>
+# <p align="center"> Setting up APIs </p>
 
-# 11. Install **django rest framework** and django cors headers
+## 11. Install **django rest framework** and django cors headers
 - Run the following command to install REST Framework
 ```console 
     pipenv install djangorestframework django-cors-headers
@@ -95,7 +95,7 @@
 - django-cors-headers is python library that prevent errors that you would get due to CORS rules
 - CORS are used to allow interaction with resources hosted on different domains, like Ajax requests
 
-# 12. Creating Serializers todo/serializers.py
+## 12. Creating Serializers todo/serializers.py
 - create file `todo/serializer.py`
 - This code specifies the model to work with and the fields to be converted to JSON
 
@@ -103,7 +103,7 @@
 - used to convert model instance to JSON so that frontend can work with the received data. Basically used to define API representation 
 
 
-# 13. Creating views **todo/views.py**
+## 13. Creating views **todo/views.py**
 - `viewsets` base class provides implementations for CRUD operations by default.
 - The code in here specifies serializer_class
 
@@ -112,16 +112,16 @@
 - Basically instead of calling `.get()` and `post()` we use `.list()` and `.create()`
 - Other frameworks find conceptually similar implementations named something like Resources or Controllers
 
-# 14. Add content to **backend/urls.py**
+## 14. Add content to **backend/urls.py**
 - Code specifies URL path for the API
 
 # The Flow for creating API
 - create models `models.py` -> using model create serializer `serializers.py` -> Create View `views.py`
 
 
-<p align="center">Setting up Frontend</p>
+# <p align="center">Setting up Frontend</p>
 
-# 15. Create React app
+## 15. Create React app
 - We use `npx` to run the package and create the project.Run command 
 ```console
     npx create-react-app frontend
@@ -173,5 +173,5 @@
         3.  
 
 
-# 16 working on UI in `app.js`
+## 16 working on UI in `app.js`
 - adding code to `frontend/src/App.js`
