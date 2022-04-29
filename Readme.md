@@ -62,7 +62,6 @@
 - Add CORS_ORIGIN_WHITELIST at the end of **backend/settings.py**
 
 
-
 # _NOTE: **Serializers**_
 - used to convert model instance to JSON so that frontend can work with the received data. Basically used to define API representation 
 
@@ -89,3 +88,57 @@
 # The Flow for creating API
 - create models `models.py` -> using model create serializer `serializers.py` -> Create View `views.py`
 
+
+# ******* Setting up Frontend **********
+# 15. Create React app
+- We use `npx` to run the package and create the project
+- Run command `npx create-react-app frontend` 
+- Install Bootstrap and Reactstrap for User interface tools `npm install bootstrap@4.6.0 reactstrap@8.9.0 --legacy-peer-deps`
+- Now in `frontend/src/index.js` we need to add bootstrap.min.css.
+
+
+# _Note: React Explained_
+
+- JSX used to code react. Example shows how JSC is implemented in react
+    ```JSX  
+        const name = sunny
+        const greet = <h1>Hello, {name}<h1>
+    ```
+
+- **Virtual DOM explained** => When state of an object is changed in React application, VDOM get's updated. It then compares it's pervious state and then update only those objects in the real DOM instead of updating all of the objects. Making things move fast.
+
+- **Components in React** => React seperates UI into components. Helps with maintaing and managing code. Below are 2 types of components: Functional and Class 
+    
+    > Example 
+    _Functional Component_ 
+    ```js
+        import React from "react";
+
+        function FunctionalComp(){
+            return <p>This is a Functional Component<p>
+        }
+    ```
+    ```js
+        export default FunctionalComp;
+    ```
+    _Class Component_ 
+    ```js
+        import React from "react";
+        export class ClassComp extends React.Component{
+            render(){
+                return <p> This is a Class Component<p>;
+            }
+        }
+    ```
+    ```js
+        export default ClassComp;
+    ```
+    
+    - **Explanation**
+        1. _Class Component_ comes with render method to render stuff onto screen.
+        2. Export default is used to export only 1 object (function, variable, class) from the file
+        3.  
+
+
+# 16 working on UI in `app.js`
+- adding code to `frontend/src/App.js`
