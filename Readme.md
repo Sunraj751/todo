@@ -1,4 +1,4 @@
-# ******* Setting up Backend **********
+<h1 style="text-align: center;"> Setting up Backend <h1>
 
 # 1. Starting project
 - Install => Python3 and Node.js
@@ -8,12 +8,21 @@
 ```console  
     pip3 install pipenv
 ```
-- if this doesn't work then run command `brew install pipenv` (for mac)
+- if this doesn't work then run command (for mac)
+```console 
+    brew install pipenv
+```
     - pipenv is a packaging tool for python, that simplifies dependency management for common use cases.
-- install django using `pipenv install django`
+- install django using 
+```console 
+    pipenv install django
+```
 
 # 3. Create a new project called backend
-- run the following command => `django-admin startproject backend`
+- run the following command
+```console 
+    django-admin startproject backend
+```
     - This command creates a default project structure for the name that you suggest in this case backend 
 - This directory will hold the following:
     - `manage.py` => used to execute project specific tasks, just like django-admin execute system wide Django tasks.
@@ -24,31 +33,51 @@
     - `wsgi.py` => contains wsgi configuration for django project. It is a recommended approach to deploy django to public
 
 # 4. Create todo application
-- `python manage.py startapp todo` => creates a folder todod with all the basic .py files needed
+- Run the command to create a folder todo with all the basic .py files needed
+```console
+    python manage.py startapp todo
+```
 
 # 5. **Migration**
--  `python manage.py migrate`=> it is live a version control system for database schema. We are using SQlite here 
-
+- This command creates a live a version control system for database schema. We are using SQlite here 
+```console
+    python manage.py migrate
+```
 # 6. Starting the server
-- run web server, with command => `python3 manage.py runserver` 
+- run web server, with command => 
+```console
+    python3 manage.py runserver`
+```
 
 # 7. Registering todo App:
 - add app's name to `backend/settings.py` in INSTALLED_APPS
 
 # 8. Work on **todo/models.py**
 - Create a table
-- Migrate it `python3 manage.py makemigrations todo`
-- then apply changes to the database `python3 manage.py migrate todo`
+- Migrate it, by running the following command 
+```console
+    python3 manage.py makemigrations todo
+```
+- then apply changes to the database, by running the following command
+```console
+    python3 manage.py migrate todo`
+```
 
 # 9. To see the changes in **CRUD**
-- `tools/admin.py` = add admin.modelAdmin class 
+- In `tools/admin.py`add admin.modelAdmin class 
 
 # 10. Create a **superuser**
-- `python manage.py createsuperuser` => access the admin interface
-- run server `python manage.py runserver`
+- To access the admin interface, run the command 
+```console
+    python manage.py createsuperuser
+```
+- run server using  
+```console
+    python manage.py runserver
+```
 - Navigate to `http://localhost:8000/admin`
 
-# ******* Setting up APIs **********
+<h1 style="text-align: center;"> Setting up APIs </h1>
 
 # _NOTE: **Django Rest framework** (used for making APIs)_
 - it is a toolkit for building Web APIs
@@ -60,9 +89,12 @@
 
 
 # 11. Install **django rest framework** and django cors headers
-- `pipenv install djangorestframework django-cors-headers`
+- Run the following command to install REST Framework
+```console 
+    pipenv install djangorestframework django-cors-headers
+```
 - Add rest_framework and corsheaders to list of installed applications in backend/settings.py
-- Add CORS_ORIGIN_WHITELIST at the end of **backend/settings.py**
+- Add CORS_ORIGIN_WHITELIST at the end of `backend/settings.py`
 
 
 # _NOTE: **Serializers**_
@@ -92,11 +124,18 @@
 - create models `models.py` -> using model create serializer `serializers.py` -> Create View `views.py`
 
 
-# ******* Setting up Frontend **********
+<h1 style="text-align: center;">Setting up Frontend<h1>
+
 # 15. Create React app
-- We use `npx` to run the package and create the project
-- Run command `npx create-react-app frontend` 
-- Install Bootstrap and Reactstrap for User interface tools `npm install bootstrap@4.6.0 reactstrap@8.9.0 --legacy-peer-deps`
+- We use `npx` to run the package and create the project.Run command 
+```console
+    npx create-react-app frontend
+```
+- Install Bootstrap and Reactstrap for User interface tools 
+
+```console
+    npm install bootstrap@4.6.0 reactstrap@8.9.0 --legacy-peer-deps
+```
 - Now in `frontend/src/index.js` we need to add bootstrap.min.css.
 
 
@@ -112,7 +151,7 @@
 
 - **Components in React** => React seperates UI into components. Helps with maintaing and managing code. Below are 2 types of components: Functional and Class 
     
-    > Example 
+    ### Example 
     _Functional Component_ 
     ```jsx
         import React from "react";
