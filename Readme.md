@@ -176,11 +176,8 @@
     Hooks can be used to make them **stateful** | Requires different syntax to use Hooks
     Constructors are not used| Constructors used to store state
 
-    - **Explanation**
-        1. _Class Component_ comes with render method to render stuff onto screen.
-        2. Export default is used to export only 1 object (function, variable, class) from the file
-        3. Now these Components are imported into main component i.e. `App.js`
-    
+- Now these Components are imported into main component i.e. `App.js`
+
     _Main Component_
     ```jsx
         import React from "react";
@@ -198,7 +195,47 @@
         }
         export default App;
     ```
+- **Props in React** => Short for properties, allows user to pass arguments or data to components. **Props in components are read-only**. They help make things dynamic
+    
+    ### Basic Example 
+    _class Classprops.js_
 
+    ```jsx
+        import React, { Component } from "react";
+        class Classprops extends Component {
+            render(){
+                return(
+                    <div>
+                        <h1>
+                            hello {this.props.name} from {this.props.name}!
+                        </h1>
+                    </div>
+                );
+            }
+        }
+        export default Classprops;
+    ```
+    
+    - Here we use properites called `name` and `place` whose values will be passed when importing component into parent component (i.e. `App.js`)
+
+    _App.js_
+
+    ```jsx
+        import React from "react";
+        import Classprops from "./Classprops";
+        class App extends React.Component{
+            render(){
+                return(
+                    <div>
+                        <Classprops name = "tar-1" place = "AB">
+                        <Classprops name = "tar-2" place = "BC">
+                    </div>
+                );
+            }
+        }
+        export default App;
+    ```
+- **State in React** =>
 
 ## 16 working on UI in `app.js`
 - adding code to `frontend/src/App.js`
