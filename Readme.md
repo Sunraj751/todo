@@ -1,4 +1,4 @@
-# <p align="center" style="color: Red"> Setting up Backend</p>
+# <p align="center"> Setting up Backend</p>
 
 ## 1. Starting project
 - Install => Python3 and Node.js
@@ -147,7 +147,7 @@
 - **Components in React** => React seperates UI into components. Helps with maintaing and managing code. Below are 2 types of components: Functional and Class 
     
     ### Example 
-    _Functional Component_ 
+    _Functional Component_ (aka Stateless Component)
     ```jsx
         import React from "react";
 
@@ -156,7 +156,7 @@
         }
         export default FunctionalComp;
     ```
-    _Class Component_ 
+    _Class Component_ (aka Stateful component)
     ```jsx
         import React from "react";
         export class ClassComp extends React.Component{
@@ -166,11 +166,38 @@
         }
         export default ClassComp;
     ```
-    
+    Functional Component | Class Component
+    ------------ | -------------
+    Basic JS function | Needs to be extended from React.Component 
+    Comes with **No render method** | Must have render method. Which reurns JSX i.e. syntactically similar to HTML
+    Accepts Props as argument | 
+    Stateless Component cause they simply accept the data and display them in some format, mainly used for rendering UI | Stateful components because they implement logic and state
+    Can't use React lifecycle method (componentDidMount) | Can use React lifecycle method
+    Hooks can be used to make them **stateful** | Requires different syntax to use Hooks
+    Constructors are not used| Constructors used to store state
+
     - **Explanation**
         1. _Class Component_ comes with render method to render stuff onto screen.
         2. Export default is used to export only 1 object (function, variable, class) from the file
-        3.  
+        3. Now these Components are imported into main component i.e. `App.js`
+    
+    _Main Component_
+    ```jsx
+        import React from "react";
+        import FunctionalComp from "./Components/FunctionalComp";
+        import ClassComp from "./Components/ClassComp";
+
+        function App(){
+            return (
+                <div>
+                    <h1>Hello</h1>
+                    <FunctionalComp />
+                    <ClassComp />
+                </div>
+            );
+        }
+        export default App;
+    ```
 
 
 ## 16 working on UI in `app.js`
