@@ -1,4 +1,4 @@
-# <p align="center" > <span style="color: Red"> Setting up Backend </span></p>
+# <p align="center" style="color: Red"> Setting up Backend</p>
 
 ## 1. Starting project
 - Install => Python3 and Node.js
