@@ -147,7 +147,7 @@
 - **Components in React** => React seperates UI into components. Helps with maintaing and managing code. Below are 2 types of components: Functional and Class 
     
     ### Example 
-    _Functional Component_ (aka Stateless Component)
+    **_Functional Component_ (aka Stateless Component)**
     ```jsx
         import React from "react";
 
@@ -156,7 +156,7 @@
         }
         export default FunctionalComp;
     ```
-    _Class Component_ (aka Stateful component)
+    **_Class Component_ (aka Stateful component)**
     ```jsx
         import React from "react";
         export class ClassComp extends React.Component{
@@ -178,7 +178,7 @@
 
 - Now these Components are imported into main component i.e. `App.js`
 
-    _Main Component_
+    **_Main Component_**
     ```jsx
         import React from "react";
         import FunctionalComp from "./Components/FunctionalComp";
@@ -195,10 +195,10 @@
         }
         export default App;
     ```
-- **Props in React** => Short for properties, allows user to pass arguments or data to components. **Props in components are read-only**. They help make things dynamic
+- **Props in React** => Short for properties, allows user to pass arguments or data to components. **Props in components are read-only**. They help make things dynamic. They are used in Functional Component (as it is with no syntax change)
     
     ### Basic Example 
-    _class Classprops.js_
+    **_class Classprops.js_**
 
     ```jsx
         import React, { Component } from "react";
@@ -218,7 +218,7 @@
     
     - Here we use properites called `name` and `place` whose values will be passed when importing component into parent component (i.e. `App.js`)
 
-    _App.js_
+    **_App.js_**
 
     ```jsx
         import React from "react";
@@ -235,7 +235,108 @@
         }
         export default App;
     ```
-- **State in React** =>
+- **State in React** => Stat represents parts of application that can be changed. React re-renders the component on the browser whenever the state of an object is changed 
+
+    **_state.js_**
+    
+    ```jsx
+        import React, { Component } from 'react';
+        class State extends Component {
+            constructor(props){
+                super(props)
+                this.state = {
+                    message: "ABC"
+                }
+            }
+            render(){
+                return(
+                    <div className ='App'>
+                        <h3>{this.state.message}</h3>
+                    </div>
+                )
+            };
+        }
+        export default State
+    ```
+
+
+    **_App.js_** (Main Component)
+    
+    ```jsx
+        import React from "react";
+        import "./App.css";
+        import State from "./Components/State";
+        class App extends React.Component{
+            styles = {
+                fontStyle:"bold",
+                color:"Black"
+            };
+            render(){
+                <div className="App">
+                    <h1 style={this.state}> Welcome</h1>
+                    <State/>
+                </div>
+            };
+        }
+        export default App;
+    ```
+    - h3 tag in **_state.js_** displays the value of `message` a state object. We use SetState() for changing the things displayed on the screen.
+
+
+    - # setState() Method
+        - Used to update state using event handler, server responses or props changes.
+        - Working => it enqueues all updates made to component state and instructs React to re-render the component and its children with the update state.
+        - Example: subscribe button is clicked. On click the display message changes. Here we have to us setState() method.
+
+    ```jsx
+        import React, {Component} from 'react';
+        class State extends Component {
+            constructor(props){
+                super(props)
+                this.state ={
+                    message: "Subscribe to Simplelearn",
+                    sub : 'Subscribe'
+                }
+            }
+            changeMessage = () => {
+                this.setState({
+                    message: "Thank you for Subcribing",
+                    sub: "Subscribed"
+                })
+            }
+            render(){
+                return(
+                    <div className='App'>
+                        <h3>{this.state.message}</h3>
+                        <button onClick={this.changeMessage}>{this.state.sub}</button>
+                    </div>
+                )
+           }
+        }
+        export default State
+    ```
+
+    -  We basically create a state object. For that we use constructor, and create the first look.
+    - Now we need to call setState() in order to get some changes. So we simply make a new method called `changeMessage()` but this time instead of using `this.state` we use `this.setState`, and add the things we want to change.  
+    - Creating button => if you read the button code, you will see we call the function that is supposed to hold the setState, but to give it the value we just call the normal state (i.e. established by the constructor).
+    <br>
+    - **constructor explained**
+        - Method used to initialize an object's state in a class.
+        - In react component is called before the component is mounted (output).
+    - **IMPORTANT**: you need to call **super(props)** before any other statement, because if you don't this.props() will be undefined in constructor and will lead to bug
+        - **super(props)** 
+            - `super` refers to parent class constructor. You can't use `this` in a constructor untill after you've called the parent constructor
 
 ## 16 working on UI in `app.js`
 - adding code to `frontend/src/App.js`
+- We have 4 hardcoded values
+- RenderTablList renders 2 spans that controls set of items that are displayed. Click on completed we see something different and incomplete other things
+- To add and edit taske we need to create a modal component
+
+# REFERENCE
+1. https://www.digitalocean.com/community/tutorials/build-a-to-do-application-using-django-and-react 
+2. https://www.simplilearn.com/tutorials/reactjs-tutorial/what-is-reactjs
+3. https://www.javatpoint.com/reactjs-tutorial
+4. https://www.django-rest-framework.org/
+
+
